@@ -1,0 +1,13 @@
+{
+    "name": "Opportunity",
+    "alias": "opportunity",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Opportunity\\Providers\\OpportunityServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -1,0 +1,13 @@
+{
+    "name": "Industries",
+    "alias": "industries",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Industries\\Providers\\IndustriesServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
