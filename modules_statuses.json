@@ -1,0 +1,21 @@
+{
+    "Authentication": true,
+    "Organization": true,
+    "Members": true,
+    "Team": true,
+    "Services": true,
+    "Client": true,
+    "Notifications": true,
+    "Industries": true,
+    "Branding": true,
+    "Categories": true,
+    "FAQ": true,
+    "Question": true,
+    "SubscriptionPlan": true,
+    "Quote": true,
+    "Opportunity": true,
+    "Templates": true,
+    "Tasks": true,
+    "Dashboard": true,
+    "SuperAdmin": true
+}
