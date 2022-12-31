@@ -1,0 +1,32 @@
+post:
+    tags:
+      - Organization
+    summary: Create Organization
+    description: 'Create Organization (Register new organization)'
+    operationId: Create Organization (Register new organization)
+    security:
+    - bearerAuth: []
+    consumes:
+    - multipart/form-data
+    parameters:
+      - in: formData
+        name: name
+        type: string
+        required: true
+        description: The name of the organization.
+      - in: formData
+        name: team_members
+        type: string
+        required: true
+        description: How large is your team?  (3 to 10) or (11 to 20) or (21 to 50) or (More than 50)
+      - in: formData
+        name: main_speciality
+        type: string
+        required: true
+        description: The main specialty of the organization.
+
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: Bad request

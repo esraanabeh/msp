@@ -1,0 +1,22 @@
+get:
+  tags:
+    - Clients
+  summary: Get All Client Questions
+  description: 'Get All Client Questions'
+  operationId: Client questions
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: clientId
+      in: path
+      type: integer
+      required: true
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request

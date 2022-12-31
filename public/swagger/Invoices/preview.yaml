@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Invoices
+  summary: Get Invoice details
+  description: Get Invoice details
+  operationId: Get Invoice details
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+  - name: invoiceId
+    in: path
+    type: string
+    required: true
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: unauthenticated user

@@ -1,0 +1,43 @@
+post:
+    tags:
+      - FAQ
+    summary: Create FAQ
+    description: Create FAQ
+    operationId: create-FAQ
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+
+    parameters:
+    - name: categoryId
+      in: path
+      type: integer
+      required: true
+
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - FAQS
+        properties:
+          FAQS:
+            type: array
+            items:
+              required:
+                - question
+                - answer
+
+              properties:
+                question:
+                  type: string
+                answer:
+                  type: string
+                
+
+    responses:
+      '200':
+        description: successful operation

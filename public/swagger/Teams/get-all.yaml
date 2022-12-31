@@ -1,0 +1,39 @@
+get:
+  tags:
+    - Teams
+  summary: Get All Teams
+  description: 'Get All Teams'
+  operationId: Teams
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: search
+      in: query
+      type: string
+    - name : status
+      in: query
+      required: false
+      type: string
+      enum: ['Active', 'Deactive']
+    - name: sort
+      in: query
+      type: string
+      enum: ['a-z', 'z-a']
+    - name: paginate
+      in: query
+      type: bool
+      enum: [true, false]
+  responses:
+    '200':
+        description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: unauthenticated user
+    '422':
+      description: validation error
+

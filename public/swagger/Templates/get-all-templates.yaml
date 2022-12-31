@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Templates
+  summary: Get All Template
+  description: 'Get All Template with this API'
+  operationId: get-All-template
+  security:
+    - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: search
+      in: query
+      type: string
+    - name: sort
+      in: query
+      type: string
+      enum: ['Template Name', 'Oldest first' ,'Newest first']
+  responses:
+    '200':
+        description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: unauthenticated user
+    '422':
+      description: validation error
+

@@ -1,0 +1,35 @@
+post:
+  tags:
+    - Clients
+  summary: Change Section Due-Date
+  description: 'Change Section Due-Date'
+  operationId:  change-section-due-date
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: clientId
+      in: path
+      type: integer
+      required: true
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - section_id
+          - due_date
+        properties:
+          section_id:
+            type: integer
+          due_date:
+            type: string
+
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request

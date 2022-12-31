@@ -1,0 +1,46 @@
+post:
+  tags:
+    - Payment Methods
+  summary: Update Payment Method
+  description: Update Payment Method
+  operationId: Update Payment Method
+  security:
+  - bearerAuth: []
+  consumes:
+    - multipart/form-data
+  parameters:
+    - in: formData
+      name: card_id
+      type: string
+      required: true
+      description: The card id returned from stripe.
+    - in: formData
+      name: name
+      type: string
+      required: true
+      description: The name on the card.
+    - in: formData
+      name: address_zip
+      type: string
+      required: true
+      description: The zip code - regex:/\b\d{5}\b/.
+    - in: formData
+      name: expiration_date
+      type: string
+      required: true
+      description: The expiration date of the card - mm/yy pattern.
+    - in: formData
+      name: is_default
+      type: bool
+      enum: [true, false]
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: unauthenticated user
+    '422':
+      description: Validation error

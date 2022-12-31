@@ -1,0 +1,29 @@
+get:
+  tags:
+    - Clients
+  summary: Get All Template Client
+  description: 'Get All Template Client'
+  operationId: Clients
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: clientId
+      in: path
+      type: integer
+      required: true
+    - name: search
+      in: query
+      type: string
+    - name: sort
+      in: query
+      type: string
+      enum: ['a-z', 'z-a']
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request

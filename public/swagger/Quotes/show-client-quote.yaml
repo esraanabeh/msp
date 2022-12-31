@@ -1,0 +1,24 @@
+get:
+    tags:
+      - Quotes
+    summary: get Client Quote
+    description: 'get client quote with this api'
+    operationId: get-client-quote
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name : clientId
+      in: path
+      required: true
+      type: integer
+    responses:
+      '200':
+        description: successful operation
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

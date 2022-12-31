@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Dashboard
+  summary: Get member Statistics
+  description: 'Get member Statistics'
+  operationId:  member Statistics
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: sort
+      in: query
+      type: enum
+      enum: [open-tasks,closed-tasks]
+    - name: search
+      in: query
+      type: string
+    - name: filter
+      in: query
+      type: string
+      enum: ['this-month', 'this-week','this-year']
+
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request

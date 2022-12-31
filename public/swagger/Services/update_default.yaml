@@ -1,0 +1,25 @@
+post:
+    tags:
+      - Master Service Agreement
+    summary: Update Default Agreement
+    description: Update Default Agreement
+    operationId: Update Default Agreement
+    security:
+    - bearerAuth: []
+    consumes:
+    - multipart/form-data
+    parameters:
+      - name: id
+        in: path
+        type: integer
+        required: true
+
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: bad request
+      '401':
+        description: unauthenticated user
+      '422':
+        description: Validation exception

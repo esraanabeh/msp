@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Organization
+  summary: Get Terms And Conditions
+  description: 'Get Terms and Conditions'
+  operationId: Organization Terms and Conditions
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request

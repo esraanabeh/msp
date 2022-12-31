@@ -1,0 +1,20 @@
+get:
+  tags:
+    - Authentication
+  summary: Logout
+  description: 'Logout with this API'
+  operationId: logout
+  security:
+    - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: Unauthorized
+

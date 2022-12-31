@@ -1,0 +1,36 @@
+post:
+    tags:
+      - Quotes
+    summary: Create Section
+    description: 'Create Quote Template Section with this API'
+    operationId: create-quote-section
+    security:
+    - bearerAuth: []
+    consumes:
+    - multipart/form-data
+    parameters:
+      - in: path
+        name: templateId
+        type: integer
+        required: true
+      - in: formData
+        name: file
+        type: file
+        required: true
+        description: The file to upload.
+      - in: formData
+        name: title
+        type: string
+        required: true
+        description: Give a title for the Quote Section
+      - in: formData
+        name: content
+        type: string
+        description: Give a content for the Quote Section
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: bad request
+      '422':
+        description: Validation exception

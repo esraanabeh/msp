@@ -1,0 +1,27 @@
+post:
+  tags:
+    - Payment Methods
+  summary: Delete Payment Method
+  description: Delete Payment Method
+  operationId: Delete Payment Method
+  security:
+  - bearerAuth: []
+  consumes:
+    - multipart/form-data
+  parameters:
+    - in: formData
+      name: card_id
+      type: string
+      required: true
+      description: The card id returned from stripe.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: unauthenticated user
+    '422':
+      description: Validation error

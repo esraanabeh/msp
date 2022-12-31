@@ -1,0 +1,17 @@
+delete:
+    tags:
+      - Authentication
+    summary: Delete Avatar
+    description: 'Delete Avatar Api '
+    operationId: Delete Avatar
+    security:
+    - bearerAuth: []
+    consumes:
+    - multipart/form-data
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: bad request
+      '422':
+        description: Validation exception

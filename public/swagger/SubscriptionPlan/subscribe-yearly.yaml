@@ -1,0 +1,25 @@
+post:
+  tags:
+    - Subscription Plans
+  summary: Subscribe in the Basic Plan
+  description: Subscribe in the Basic Plan
+  operationId: Subscribe in the Basic Plan
+  security:
+  - bearerAuth: []
+  consumes:
+    - multipart/form-data
+  parameters:
+    - in: formData
+      name: token
+      type: string
+      required: true
+      description: The token recieved from stripe.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: unauthenticated user

@@ -1,0 +1,32 @@
+get:
+  tags:
+    - Opportunity
+  summary: Preview client Opportunities
+  description: 'Preview client Opportunities'
+  operationId: Preview client Opportunities
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: id
+      in: path
+      type: integer
+      required: true
+    - name: service_type
+      in: query
+      type: string
+      enum: [MRR, ORR]
+    - name: paginate
+      in: query
+      type: bool
+      enum: [true, false]
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '422':
+      description: validation error

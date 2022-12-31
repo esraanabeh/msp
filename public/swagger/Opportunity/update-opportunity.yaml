@@ -1,0 +1,42 @@
+post:
+    tags:
+      - Opportunity
+    summary: Update Opportunity
+    description: 'Update Opportunity '
+    operationId: Update Opportunity
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: id
+      in: path
+      type: integer
+      required: true
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - service_id
+          - client_id
+          - opportunity_notes
+        properties:
+          service_id:
+            type: integer
+          opportunity_notes:
+            type: string
+          client_id:
+            type: integer
+      required: true
+    responses:
+      '200':
+        description: successful operation
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error
+      '400':
+        description: Bad request

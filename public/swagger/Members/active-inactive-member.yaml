@@ -1,0 +1,32 @@
+post:
+    tags:
+      - Members
+    summary: Active And Inactive Member
+    description: 'Active And Inactive Member '
+    operationId: Active And Inactive Member
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - member_id
+          - status
+        properties:
+          member_id:
+            type: integer
+          status:
+            type: boolean
+    responses:
+      '200':
+        description: successful operation
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

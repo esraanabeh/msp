@@ -1,0 +1,34 @@
+post:
+    tags:
+      - Teams
+    summary: Active And Inactive Team
+    description: 'Active And Inactive Team '
+    operationId: Active And Inactive Team
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - team_id
+          - status
+        properties:
+          team_id:
+            type: integer
+          status:
+            type: boolean
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: Bad request
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

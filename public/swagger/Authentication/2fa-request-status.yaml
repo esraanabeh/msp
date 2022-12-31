@@ -1,0 +1,17 @@
+get:
+    tags:
+      - Authentication
+    summary: 2FA Change Status Request
+    description: 'request to change 2fa status with this API'
+    operationId: 2f-request-status
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    responses:
+      '200':
+          description: successful operation
+      '401':
+        description: unauthenticated user

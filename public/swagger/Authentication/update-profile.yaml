@@ -1,0 +1,43 @@
+post:
+    tags:
+      - Authentication
+    summary: Update Profile
+    description: 'Update Profile Api '
+    operationId: Update Profile
+    security:
+    - bearerAuth: []
+    consumes:
+    - multipart/form-data
+    parameters:
+      - in: formData
+        name: avatar
+        type: file
+        description: The file to upload.
+        required: false
+      - in: formData
+        name: first_name
+        type: string
+        description: First name.
+        required: true
+      - in: formData
+        name: last_name
+        type: string
+        description: Last name
+        required: true
+      - in: formData
+        name: email
+        type: string
+        description: email
+        required: true
+      - in: formData
+        name: phone_number
+        type: string
+        description: phone number
+        required: true
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: bad request
+      '422':
+        description: Validation exception

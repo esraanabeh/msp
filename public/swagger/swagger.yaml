@@ -1,0 +1,483 @@
+swagger: '2.0'
+info:
+  description: LPT APis
+  version: 1.0.0
+  title: LPT Frontend API's
+basePath: /api/
+tags:
+  - name: Authentication
+    description: Authenticate Users
+  - name: Services Pricing
+    description: Organization services Pricing
+  - name: Master Service Agreement
+    description: Organization Master Service Agreement
+  - name: Members
+    description: Team members
+  - name: Teams
+    description: Organization Team
+  - name: Notifications
+    description: Organization Notifications
+  - name: Organization
+    description: Organization Management
+  - name: Clients
+    description: Clients Management
+  - name: Industries
+    description: Industries Management
+  - name: FAQ
+    description: Frequently  Questions
+  #- name: Question
+  #  description: Client Questions
+  - name: Quotes
+    description: Quotes
+  - name: Opportunity
+    description: Client Opportunities
+  - name: Templates
+    description: Templates
+  - name: Templates Sections
+    description: Templates Sections
+  - name: Tasks
+    description: Tasks in Sections
+  - name: ActivityLogs
+    description: System Activity Logs
+  - name: Subscription Plans
+    description: Organization Subscription Plans
+  - name: Invoices
+    description: Organization Subscriptions Invoices
+  - name: Payment Methods
+    description: Organization Payment Methods
+  - name: Dashboard
+    description: Staff Member Dashboard
+
+
+paths:
+  /auth/login:
+    $ref: "./Authentication/auth-login.yaml"
+
+  /auth/2fa:
+    $ref: "./Authentication/auth-2fa.yaml"
+
+  /logout:
+    $ref: "./Authentication/logout.yaml"
+
+  /auth/verify:
+    $ref: "./Authentication/auth-verify.yaml"
+
+  /auth/register:
+    $ref: "./Authentication/auth-register.yaml"
+
+  /change_password:
+    $ref: "./Authentication/change-password.yaml"
+
+  /confirm_password:
+    $ref: "./Authentication/change-password-confirm.yaml"
+    
+  /teams:
+    $ref: "./Teams/get-all.yaml"
+
+  /teams/create:
+    $ref: "./Teams/create-team.yaml"
+
+  /teams/update/{id}:
+    $ref: "./Teams/update-team.yaml"
+
+  /teams/delete/{id}:
+    $ref: "./Teams/delete-team.yaml"
+
+  /teams/update/status/{id}:
+    $ref: "./Teams/active-inactive-team.yaml"
+
+  /get_members:
+    $ref: "./Members/get-all.yaml"
+
+  /create_members:
+    $ref: "./Members/create-member.yaml"
+
+  /member/update/{id}:
+    $ref: "./Members/update-member.yaml"
+
+  /member/delete/{id}:
+    $ref: "./Members/delete-member.yaml"
+
+  /member/update_status:
+    $ref: "./Members/active-inactive-member.yaml"
+
+  /auth/forget-password:
+    $ref: "./Authentication/forget-password.yaml"
+
+  /auth/reset-password:
+    $ref: "./Authentication/reset-password.yaml"
+
+  /services:
+    $ref: "./Services/list-services.yaml"
+
+  /services/create:
+    $ref: "./Services/create-service.yaml"
+
+  /services/delete/{id}:
+    $ref: "./Services/delete-service.yaml"
+
+  /msa:
+    $ref: "./Services/list-master_service_agreement.yaml"
+
+  /msa/create:
+    $ref: "./Services/create-master_service_agreement.yaml"
+
+  /msa/update-default/{id}:
+    $ref: "./Services/update_default.yaml"
+
+  /msa/delete/{id}:
+    $ref: "./Services/delete-master_service_agreement.yaml"
+
+  /update_personal_profile:
+    $ref: "./Authentication/update-profile.yaml"
+
+  /update_avatar:
+    $ref: "./Authentication/update-avatar.yaml"
+
+  /delete_avatar:
+    $ref: "./Authentication/delete-avatar.yaml"
+
+  /get_user_info:
+    $ref: "./Authentication/get_user_info.yaml"
+
+  /list_notifications:
+    $ref: "./Notifications/list_notifications.yaml"
+
+  /list_admin/user_notifications:
+    $ref: "./Notifications/list_admin_user_notifications.yaml"
+
+  /preview_notification_details/{id}:
+    $ref: "./Notifications/preview_notification_details.yaml"
+
+  /notification/update_status:
+    $ref: "./Notifications/update-notification.yaml"
+
+  /clients:
+    $ref: "./Clients/list-clients.yaml"
+
+  /clients/create:
+    $ref: "./Clients/create-client-step1.yaml"
+
+  /clients/update/{clientId}:
+    $ref: "./Clients/update-client-step1.yaml"
+
+  # /clients/create-questions/{clientId}:
+  #   $ref: "./Clients/store-client-questions.yaml"
+
+  /clients/update-questions/{clientId}:
+    $ref: "./Clients/update-client-questions.yaml"
+
+  /clients/delete-questions/{questionId}:
+    $ref: "./Clients/delete-client-questions.yaml"
+
+  /clients/{clientId}:
+    $ref: "./Clients/show-client.yaml"
+
+  #/clients/create-MRR-questions/{clientId}:
+   # $ref: "./Clients/store-client-MRR-questions.yaml"
+
+  /clients/list-questions/{clientId}:
+    $ref: "./Clients/list-client-questions.yaml"
+
+  # /clients/create-ORR-questions/{clientId}:
+  #   $ref: "./Clients/store-client-ORR-questions.yaml"
+
+  /clients/list-MRR-services/{clientId}:
+    $ref: "./Clients/list-client-MRR.yaml"
+
+  /clients/list-ORR-services/{clientId}:
+    $ref: "./Clients/list-client-ORR.yaml"
+
+  /clients/create-MRR-services/{clientId}:
+    $ref: "./Clients/store-client-MRR-services.yaml"
+
+  /clients/create-ORR-services/{clientId}:
+    $ref: "./Clients/store-client-ORR-services.yaml"
+
+  /clients/change-status/{clientId}:
+    $ref: "./Clients/change-client-status.yaml"
+
+  /clients/delete/{clientId}:
+    $ref: "./Clients/delete-client.yaml"
+
+  /clients/profit/{clientId}:
+    $ref: "./Clients/get-client-profit.yaml"
+
+  /clients/profits/all-clients:
+    $ref: "./Clients/get-all-clients-profits.yaml"
+
+  /clients/profits-table/{clientId}:
+    $ref: "./Clients/get-client-profit-table.yaml"
+
+  /clients/list-tasks/{clientId}:
+    $ref: "./Clients/list-client-tasks.yaml"
+
+  /2fa-status:
+    $ref: "./Authentication/2fa-status.yaml"
+
+  /2fa-change-request:
+    $ref: "./Authentication/2fa-request-status.yaml"
+
+  /2fa-change-status:
+    $ref: "./Authentication/2fa-change-status.yaml"
+
+  /services/update_service:
+    $ref: "./Services/update-service.yaml"
+
+  /create_industry:
+    $ref: "./Industries/create-industry.yaml"
+
+  /list_industries:
+    $ref: "./Industries/list-industry.yaml"
+
+  /delete_industries/{id}:
+    $ref: "./Industries/delete_industries.yaml"
+
+  /update_industries:
+    $ref: "./Industries/update-industry.yaml"
+
+  /workspace/create:
+    $ref: "./Organization/create-organization.yaml"
+
+  /workspace/logo/upload:
+    $ref: "./Organization/upload-organization-logo.yaml"
+
+  /workspace/logo:
+    $ref: "./Organization/get-organization-logo.yaml"
+
+  /workspace/profile:
+    $ref: "./Organization/list-org-info.yaml"
+
+  /workspace/profile/update:
+    $ref: "./Organization/update-org-info.yaml"
+
+  /workspace/terms/update:
+    $ref: "./Organization/update-terms-conditions.yaml"
+
+  /workspace/terms:
+    $ref: "./Organization/list-terms-conditions.yaml"
+
+  /FAQ/create/{categoryId}:
+    $ref: "./FAQ/create-faq.yaml"
+
+  /FAQ/create/category:
+    $ref: "./FAQ/create-category.yaml"
+
+  /FAQ/update/{id}:
+    $ref: "./FAQ/update-FAQ.yaml"
+
+  /FAQ/update/category/{id}:
+    $ref: "./FAQ/update-Category.yaml"
+
+  /FAQ/list_categories:
+    $ref: "./FAQ/list-categories.yaml"
+
+  /FAQ/list_FAQ/{id}:
+    $ref: "./FAQ/list-FAQ.yaml"
+
+  /FAQ/category/{id}:
+    $ref: "./FAQ/delete-category.yaml"
+
+  /FAQ/question/{id}:
+    $ref: "./FAQ/delete-question.yaml"
+  /auth/resend-pin-code:
+    $ref: "./Authentication/resend-pin-code.yaml"
+  #/questions:
+  #  $ref: "./Question/list-questions.yaml"
+
+  /services/MRR:
+    $ref: "./Services/list-MRR-questions.yaml"
+
+  /services/ORR:
+    $ref: "./Services/list-ORR-questions.yaml"
+
+  #/questions/create:
+  #  $ref: "./Question/create-question.yaml"
+
+  #/questions/delete/{id}:
+  #  $ref: "./Question/delete-question.yaml"
+
+  /subscriptionplan:
+    $ref: "./SubscriptionPlan/list-plans.yaml"
+
+  /subscriptionplan/myplan:
+    $ref: "./SubscriptionPlan/my-plan.yaml"
+
+  /subscribe/trial:
+    $ref: "./SubscriptionPlan/subscribe-trial.yaml"
+
+  /subscribe/yearly:
+    $ref: "./SubscriptionPlan/subscribe-yearly.yaml"
+
+  /subscribe/upgrade:
+    $ref: "./SubscriptionPlan/upgrade.yaml"
+
+  /subscribe/cancel:
+    $ref: "./SubscriptionPlan/cancel.yaml"
+
+  /quotes/section/create/{templateId}:
+    $ref: "./Quotes/create-quote-section.yaml"
+
+  /quotes/section/delete/{id}:
+    $ref: "./Quotes/delete-quote-section.yaml"
+
+  /quotes/template:
+    $ref: "./Quotes/get-quote-template.yaml"
+
+  /quotes/template/update/{templateId}:
+    $ref: './Quotes/update-quote-template.yaml'
+
+  /quotes/check-code:
+    $ref: "./Quotes/quote-link-check.yaml"
+
+  /quotes/client-decision:
+    $ref: "./Quotes/client-quote-decision.yaml"
+
+  /client/quote/generate/{clientId}:
+    $ref: "./Quotes/generate-client-quote.yaml"
+
+  /client/quote/save/{clientId}:
+    $ref: "./Quotes/save-client-quote.yaml"
+
+  /client/quote/send/{clientId}:
+    $ref: "./Quotes/send-client-quote.yaml"
+
+  /client/quote/get/{clientId}:
+    $ref: "./Quotes/show-client-quote.yaml"
+
+  /clients/list-client-template/{clientId}:
+    $ref: "./Clients/client-document.yaml"
+
+  /clients/asign-template/{clientId}:
+    $ref: "./Clients/asign-client-document.yaml"
+
+  /clients/section-due-date/{clientId}:
+    $ref: "./Clients/section-due-date.yaml"
+
+  /opportunity:
+    $ref: "./Opportunity/get-all-opportunity.yaml"
+
+  /opportunity/create:
+    $ref: "./Opportunity/add-new-opportunity.yaml"
+
+  /opportunity/preview/client/{id}:
+    $ref: "./Opportunity/preview-client-opportunity.yaml"
+
+  /opportunity/preview/{id}:
+    $ref: "./Opportunity/preview-opportunity.yaml"
+
+  /opportunity/update/{id}:
+    $ref: "./Opportunity/update-opportunity.yaml"
+
+  /opportunity/destroy/{id}:
+    $ref: "./Opportunity/delete-opportunity.yaml"
+
+  /template/create:
+    $ref: './Templates/create-template.yaml'
+
+  /template/delete/{id}:
+    $ref: './Templates/delete-template.yaml'
+
+  # /template/assign/{Clientid}:
+  #   $ref: './Templates/create-client-template.yaml'
+
+  /template/list/all:
+    $ref: './Templates/get-all-templates.yaml'
+
+  /template/list/my/template:
+    $ref: './Templates/get-my-templates.yaml'
+
+  /template/section/list/{id}:
+    $ref: './TemplatesSections/list-sections.yaml'
+
+  /template/section/delete/{id}:
+    $ref: './TemplatesSections/delete-section.yaml'
+
+  /template/section/show/{id}:
+    $ref: './TemplatesSections/show-section.yaml'
+
+  /template/section/create:
+    $ref: './TemplatesSections/create-section.yaml'
+
+  /template/section/update/{id}:
+    $ref: './TemplatesSections/update-section.yaml'
+
+  /template/update/{id}:
+    $ref: './Templates/update-template.yaml'
+
+  /template/{id}:
+    $ref: './Templates/get-template-details.yaml'
+
+  /activity/log:
+    $ref: "./ActivityLogs/get-all.yaml"
+
+  /payment/list:
+    $ref: "./PaymentMethods/list.yaml"
+
+  /payment/create:
+    $ref: "./PaymentMethods/create.yaml"
+
+  /payment/update:
+    $ref: "./PaymentMethods/update.yaml"
+
+  /payment/delete:
+    $ref: "./PaymentMethods/delete.yaml"
+
+  /payment/retrieve:
+    $ref: "./PaymentMethods/retrieve.yaml"
+
+  /payment/retrieve/default:
+    $ref: "./PaymentMethods/retrieve-default.yaml"
+  /tasks/create/{sectionId}:
+    $ref: "./Tasks/create-task.yaml"
+
+  /tasks/list/{id}:
+    $ref: "./Tasks/list-tasks.yaml"
+
+  # /tasks/client/list/{sectionId}:
+  #   $ref: "./Tasks/list-client-tasks.yaml"
+
+  /tasks/delete/{id}:
+    $ref: "./Tasks/delete-tasks.yaml"
+
+  # /tasks/dublicate:
+  #   $ref: "./Tasks/dublicate-tasks.yaml"
+
+  /tasks/update/{taskId}:
+    $ref: "./Tasks/update-task-progress.yaml"
+
+  /tasks/email:
+    $ref: "./Tasks/send-email.yaml"
+
+  /tasks/update-tasks:
+    $ref: "./Tasks/update-client-tasks.yaml"
+
+  /tasks/delete:
+    $ref: "./Tasks/delete-client-tasks.yaml"
+
+  /invoice/list:
+    $ref: "./Invoices/list.yaml"
+
+  /invoice/{invoiceId}:
+    $ref: "./Invoices/preview.yaml"
+
+
+  /dashboard/member/statistics:
+    $ref: "./Dashboard/get-member-statistics.yaml"
+
+  /dashboard/admin/statistics:
+    $ref: "./Dashboard/get-admin-statistics.yaml"
+
+
+
+securityDefinitions:
+  bearerAuth:
+    type: apiKey
+    name: Authorization
+    in: header
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

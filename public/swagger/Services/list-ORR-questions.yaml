@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Services Pricing
+  summary: List ORR Services
+  description: 'List ORR Services with this API'
+  operationId: list-orr-services
+  security:
+    - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: search
+      in: query
+      type: string
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: Unauthorized
+

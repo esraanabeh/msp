@@ -1,0 +1,93 @@
+post:
+    tags:
+      - Tasks
+    summary: Create Task
+    description: Create Task
+    operationId: create-tasks
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: sectionId
+      in: path
+      type: integer
+      required: true
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - tasks
+          - automatic_reminder
+          - shared_with_client
+          - team_id
+          - name
+        properties:
+          name:
+            type: string
+          description:
+            type: string
+          automatic_reminder:
+            type: boolean
+          reminder_day:
+            type : integer
+            description: allowed values [1,2,3,5,7]
+          reminder_time:
+            type: time
+            description: allowed format [H:i:s]
+          team_id:
+            type: integer
+          shared_with_client:
+            type: boolean
+          email_template:
+            type: object
+            description: required if section shared with client
+            properties:
+              title:
+                type: string
+              content:
+                type: string
+          tasks:
+            type: array
+            items:
+              required:
+                - title
+                - type
+              properties:
+                title:
+                  type: string
+                type:
+                  type: string
+                  description : allowed types [text_block,short_replies,long_replies,multiple_choice,dorp_down,documents,date,single_choice]
+                description:
+                  type: string
+                file:
+                  type: file
+                  description: required if type is documents
+                file_name:
+                  type: string
+                  description: the name of the file
+                options:
+                  type: array
+                  description: required if type in [multiple_choice,drop_down,single_choice]
+                  items:
+                    required:
+                      - title
+                      - is_selected
+                    properties:
+                      title:
+                        type: string
+                      is_selected:
+                        type: boolean
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: Bad request
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

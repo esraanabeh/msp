@@ -1,0 +1,52 @@
+post:
+    tags:
+      - Templates
+    summary: Create Client Template
+    description: 'Create Client Template '
+    operationId: Create Client Template
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: Clientid
+      in: path
+      type: integer
+      required: true
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - title
+          - description
+        properties:
+          title:
+            type: string
+          description:
+            type: string
+          sections:
+            type: array
+            items:
+              required:
+                - name
+                - team_id
+                - shared_with_client
+              properties:
+                name:
+                  type: string
+                team_id:
+                  type: integer
+                shared_with_client:
+                  type: boolean
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: Bad request
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

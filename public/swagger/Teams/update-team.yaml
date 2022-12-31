@@ -1,0 +1,40 @@
+post:
+    tags:
+      - Teams
+    summary: Update Team
+    description: 'Update Team '
+    operationId: Update Team
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: id
+      in: path
+      type: integer
+      required: true
+
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - name
+          - status
+        properties:
+          name:
+            type: string
+          status:
+            type: boolean
+
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: Bad request
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

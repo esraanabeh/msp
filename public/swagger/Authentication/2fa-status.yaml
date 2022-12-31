@@ -1,0 +1,17 @@
+get:
+    tags:
+      - Authentication
+    summary: 2FA Status
+    description: 'Get 2FA status with this API'
+    operationId: 2fa-status
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    responses:
+      '200':
+          description: successful operation
+      '401':
+        description: unauthenticated user

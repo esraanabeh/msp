@@ -1,0 +1,23 @@
+post:
+    tags:
+      - Authentication
+    summary: Update Avatar
+    description: 'Update Avatar Api '
+    operationId: Update Avatar
+    security:
+    - bearerAuth: []
+    consumes:
+    - multipart/form-data
+    parameters:
+    - in: formData
+      name: avatar
+      type: file
+      description: The file to upload.
+      required: true
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: bad request
+      '422':
+        description: Validation exception

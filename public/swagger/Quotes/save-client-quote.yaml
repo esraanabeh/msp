@@ -1,0 +1,60 @@
+post:
+    tags:
+      - Quotes
+    summary: Save Client Quote
+    description: 'save client quote with this api'
+    operationId: save-client-quote
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name : clientId
+      in: path
+      required: true
+      type: integer
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - introduction
+          - services
+          - master_service_agreement_id
+        properties:
+          introduction:
+            type: string
+          services:
+            type: array
+            items:
+              required:
+                - title
+                - unit_cost
+              properties:
+                title:
+                  type: string
+                unit_cost:
+                  type: integer
+                qty:
+                  type: integer
+                type:
+                  type: string
+                  description: allowed types [MRR, ORR]
+                total_amount:
+                  type: double
+          master_service_agreement_id:
+            type: integer
+          other_sections:
+            type: array
+            items:
+              type: integer
+            description: list of ids of quote template other_sections
+    responses:
+      '200':
+        description: successful operation
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

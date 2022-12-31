@@ -1,0 +1,25 @@
+get:
+  tags:
+    - Quotes
+  summary: Generate Client Quote
+  description: 'Generate Client Quote with this API'
+  operationId: generate-client-quote
+  security:
+    - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: clientId
+      in: path
+      type: integer
+      required: true
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: Unauthorized
+

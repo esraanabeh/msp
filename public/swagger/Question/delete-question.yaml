@@ -1,0 +1,22 @@
+delete:
+    tags:
+      - Question
+    summary: Destroy Question
+    description: 'Destroy Question with this API'
+    operationId: delete-question
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: id
+      in: path
+      type: integer
+      required: true
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: bad request

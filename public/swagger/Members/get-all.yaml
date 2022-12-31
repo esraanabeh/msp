@@ -1,0 +1,25 @@
+get:
+  tags:
+    - Members
+  summary: Get All Members
+  description: 'Get All Members'
+  operationId: Members
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: search
+      in: query
+      type: string
+    - name: sort
+      in: query
+      type: string
+      enum: ['a-z', 'z-a']
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request

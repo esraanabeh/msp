@@ -1,0 +1,45 @@
+post:
+    tags:
+      - Members
+    summary: Create Member
+    description: 'Create Member '
+    operationId: Create Member
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - first_name
+          - last_name
+          - email
+          - team_id
+          - role
+          - status
+        properties:
+          first_name:
+            type: string
+          last_name:
+            type: string
+          email:
+            type: string
+          team_id:
+            type: integer
+          role:
+            type: string
+            description: Role = admin or staff member
+          status:
+            type: boolean
+    responses:
+      '200':
+        description: successful operation
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

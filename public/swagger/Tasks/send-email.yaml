@@ -1,0 +1,40 @@
+post:
+    tags:
+      - Tasks
+    summary: send email to client
+    description: send email to client
+    operationId: send email to client
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - email
+          - title
+          - content
+        properties:
+          email:
+            type: string
+            description: email of the client
+          title:
+            type: string
+            description: title of the email
+          content:
+            type: string
+            description: content of the email
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: Bad request
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

@@ -1,0 +1,35 @@
+get:
+  tags:
+    - Clients
+  summary: List Clients
+  description: 'List Clients with this API'
+  operationId: List Clients
+  security:
+    - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name : search
+      in: query
+      required: false
+      type: string
+    - name : status
+      in: query
+      required: false
+      type: string
+      description: allowed statuses [Active,Pending,Prospect,Declined]
+    - name : sort
+      in: query
+      required: false
+      type: string
+      description: allowed statuses [client_name,company]
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: Unauthorized
+

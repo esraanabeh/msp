@@ -1,0 +1,48 @@
+post:
+    tags:
+      - Clients
+    summary: Create Client Questions
+    description: 'create client with required questions information (step 2,3) '
+    operationId: create-client-questions
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name : clientId
+      in: path
+      required: true
+      type: integer
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - questions
+        properties:
+          questions:
+            type: array
+            items:
+              required:
+                - question
+                - is_opportunity
+                - type
+                - id
+              properties:
+                id:
+                  type: integer
+                answer:
+                  type: string
+                is_opportunity:
+                  type: boolean
+                opportunity_notes:
+                  type: string
+    responses:
+      '200':
+        description: successful operation
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

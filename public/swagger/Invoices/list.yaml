@@ -1,0 +1,19 @@
+get:
+  tags:
+    - Invoices
+  summary: Get All Invoices
+  description: 'Get All Invoices'
+  operationId: Invoices
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: unauthenticated user

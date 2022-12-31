@@ -1,0 +1,31 @@
+get:
+    tags:
+      - Clients
+    summary: Get Client Profit
+    description: 'show client profits'
+    operationId: client-profit
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: clientId
+      in: path
+      type: integer
+      required: true
+    - name: year
+      in: query
+      type: string
+      description: allow to send year as a number or send this_year like design
+    - name: month
+      in: query
+      type: integer
+    responses:
+      '200':
+        description: successful operation
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

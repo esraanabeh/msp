@@ -1,0 +1,21 @@
+get:
+  tags:
+    - Payment Methods
+  summary: List of Payment Methods
+  description: List of Payment Methods
+  operationId: List of Payment Methods
+  security:
+  - bearerAuth: []
+  consumes:
+    - multipart/form-data
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: unauthenticated user
+    '422':
+      description: Validation error

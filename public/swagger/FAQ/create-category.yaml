@@ -1,0 +1,28 @@
+post:
+    tags:
+      - FAQ
+    summary: Create Category
+    description: Create Category
+    operationId: create-Category
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - name
+
+        properties:
+          name:
+            type: string
+          
+
+    responses:
+      '200':
+        description: successful operation

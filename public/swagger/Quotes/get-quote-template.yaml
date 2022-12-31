@@ -1,0 +1,20 @@
+get:
+  tags:
+    - Quotes
+  summary: Get Quote Template
+  description: 'Get Quote Template with this API'
+  operationId: get-quote-template
+  security:
+    - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: Unauthorized
+

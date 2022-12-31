@@ -1,0 +1,50 @@
+post:
+    tags:
+      - Services Pricing
+    summary: Update Service
+    description: 'Update Service '
+    operationId: Update Service
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - title
+          - unit_cost
+          
+        properties:
+          services:
+            type: array
+            items:
+              required:
+                - title
+                - unit_cost
+                - type
+              properties:
+                id:
+                  type: integer
+                title:
+                  type: string
+                unit_cost:
+                  type: double
+                type:
+                  type: string
+
+      required: true
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: bad request
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error
+

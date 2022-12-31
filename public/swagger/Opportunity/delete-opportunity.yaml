@@ -1,0 +1,24 @@
+delete:
+    tags:
+      - Opportunity
+    summary: Delete opportunity
+    description: 'Delete opportunity '
+    operationId: Delete opportunity
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: id
+      in: path
+      type: integer
+      required: true
+    responses:
+      '200':
+        description: successful operation
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

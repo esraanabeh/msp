@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Opportunity
+  summary: Preview Opportunities
+  description: 'Preview Opportunities'
+  operationId: Preview Opportunities
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: id
+      in: path
+      type: integer
+      required: true
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+      '422':
+        description: validation error

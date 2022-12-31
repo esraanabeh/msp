@@ -1,0 +1,35 @@
+post:
+    tags:
+      - Tasks
+    summary: List Client Tasks
+    description: 'List Client Tasks '
+    operationId: List Client Tasks
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: sectionId
+      in: path
+      type: integer
+      required: true
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - client_id
+        properties:
+          client_id:
+            type: integer
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: Bad request
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

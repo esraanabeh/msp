@@ -1,0 +1,24 @@
+delete:
+    tags:
+      - Clients
+    summary: Delete Client
+    description: 'Delete Client '
+    operationId: delete-client
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: clientId
+      in: path
+      type: integer
+      required: true
+    responses:
+      '200':
+        description: successful operation
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

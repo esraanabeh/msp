@@ -1,0 +1,34 @@
+post:
+    tags:
+      - Master Service Agreement
+    summary: Create  master service agreement
+    description: Create master service agreement
+    operationId: Create master service agreement
+    security:
+    - bearerAuth: []
+    consumes:
+    - multipart/form-data
+    parameters:
+      - in: formData
+        name: file
+        type: file
+        required: true
+        description: The file to upload.
+      - in: formData
+        name: title
+        type: string
+        required: true
+        description: Give a title for the uploaded file
+      - in: formData
+        name: isDefault
+        type: boolean
+        required: true
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: bad request
+      '401':
+        description: unauthenticated user
+      '422':
+        description: Validation exception

@@ -1,0 +1,34 @@
+get:
+  tags:
+    - Opportunity
+  summary: Get All Opportunities
+  description: 'Get All Opportunities'
+  operationId: Get All Opportunities
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: client_id
+      in: query
+      type: int
+    - name: search
+      in: query
+      type: string
+    - name: sort
+      in: query
+      type: string
+      enum: ['a-z', 'z-a' , 'higher' , 'lower']
+    - name: paginate
+      in: query
+      type: bool
+      enum: [true, false]
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '422':
+      description: validation error

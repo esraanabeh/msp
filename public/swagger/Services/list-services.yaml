@@ -1,0 +1,19 @@
+get:
+  tags:
+    - Services Pricing
+  summary: Get All Services
+  description: 'Get All Services'
+  operationId: Services
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: unauthenticated user

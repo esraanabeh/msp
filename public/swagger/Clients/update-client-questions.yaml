@@ -1,0 +1,89 @@
+# post:
+#     tags:
+#       - Clients
+#     summary: update Client Questions
+#     description: 'update client with required questions information (step 2,3) '
+#     operationId: update-client-questions
+#     security:
+#     - bearerAuth: []
+#     consumes:
+#       - application/json
+#     produces:
+#       - application/json
+#     parameters:
+#     - name : questionId
+#       in: path
+#       required: true
+#       type: integer
+#     - name: request body
+#       in: body
+#       schema:
+#         type: object
+#         required:
+#           - question
+
+#         properties:
+#           question:
+#             type: text
+
+#     responses:
+#       '200':
+#         description: successful operation
+#       '401':
+#         description: unauthenticated user
+#       '422':
+#         description: validation error
+
+post:
+    tags:
+      - Clients
+    summary: update Client Questions
+    description: 'update client with required questions information (step 2,3) '
+    operationId: update-client-questions
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name : clientId
+      in: path
+      required: true
+      type: integer
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - question
+          - service_id
+        properties:
+          questions:
+            type: array
+            items:
+              required:
+                - question
+                - service_id
+              properties:
+                id:
+                  type: integer
+                question:
+                  type: string
+                service_id:
+                  type: integer
+
+
+      required: true
+    - name: paginate
+      in: query
+      type: bool
+      enum: [true, false]
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: Bad request
+      '422':
+        description: validation error
+

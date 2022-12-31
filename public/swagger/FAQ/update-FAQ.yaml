@@ -1,0 +1,36 @@
+post:
+    tags:
+      - FAQ
+    summary: Update FAQ
+    description: 'Update FAQ '
+    operationId: Update FAQ
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: id
+      in: path
+      type: integer
+      required: true
+
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - question
+          - answer
+        properties:
+          question:
+            type: string
+          answer:
+            type: string
+          
+
+    responses:
+      '200':
+        description: successful operation
+

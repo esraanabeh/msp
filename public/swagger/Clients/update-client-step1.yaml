@@ -1,0 +1,60 @@
+post:
+    tags:
+      - Clients
+    summary: Create Client
+    description: 'create client with basic information (step 1) '
+    operationId: update-client-1
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+    - name: clientId
+      in: path
+      type: integer
+      required: true
+    - name: request body
+      in: body
+      schema:
+        type: object
+        required:
+          - company_name
+          - contact_person
+          - phone_number
+          - industry
+        properties:
+          company_name:
+            type: string
+          contact_person:
+            type: string
+          phone_number:
+            type: string
+          email:
+            type: string
+          industry:
+            type: string
+          address:
+            type: text
+          additional_questions:
+            type: array
+            items:
+              properties:
+                question:
+                  type: string
+                answer:
+                  type: string
+            question:
+              type: json
+          number_of_employees:
+            type: integer
+
+      required: true
+    responses:
+      '200':
+        description: successful operation
+      '401':
+        description: unauthenticated user
+      '422':
+        description: validation error

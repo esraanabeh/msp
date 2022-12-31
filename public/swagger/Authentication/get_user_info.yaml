@@ -1,0 +1,17 @@
+get:
+    tags:
+      - Authentication
+    summary: Get User Information
+    description: 'Get User Information Api '
+    operationId: Get User Information
+    security:
+    - bearerAuth: []
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    responses:
+      '200':
+        description: successful operation
+      '400':
+        description: Bad request

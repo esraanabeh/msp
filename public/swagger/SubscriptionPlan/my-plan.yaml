@@ -1,0 +1,19 @@
+get:
+  tags:
+    - Subscription Plans
+  summary: Get My Subscriped Plan
+  description: 'Get My Subscriped Plan'
+  operationId: Get My Subscriped Plan
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: unauthenticated user
