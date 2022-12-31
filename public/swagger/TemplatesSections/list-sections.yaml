@@ -1,0 +1,33 @@
+get:
+  tags:
+    - Templates Sections
+  summary: Get All Sections of template
+  description: 'Get All Sections of template '
+  operationId: Sections
+  security:
+  - bearerAuth: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: id
+      in: path
+      type: integer
+      required: true
+      schema:
+        type: object
+        required:
+          - id
+        properties:
+          id:
+            type:integer
+  responses:
+    '200':
+        description: successful operation
+    '400':
+      description: Bad request
+    '401':
+      description: unauthenticated user
+    '422':
+      description: validation error
